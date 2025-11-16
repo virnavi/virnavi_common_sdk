@@ -1,0 +1,1 @@
+class NoSuchElementException implements Exception {}
