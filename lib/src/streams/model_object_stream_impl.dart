@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import '../models/models.dart';
-
 import 'model_stream.dart';
 
 class ModelListStreamImpl<Model, Entity> extends ModelStream<Model> {
@@ -56,5 +55,4 @@ class ModelListStreamImpl<Model, Entity> extends ModelStream<Model> {
     return controller.stream.listen(onData,
         onError: onError, onDone: onDone, cancelOnError: cancelOnError);
   }
-
 }
