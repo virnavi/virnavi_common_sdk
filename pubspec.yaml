@@ -5,13 +5,13 @@ homepage:
 repository: https://github.com/virnavi/virnavi_common_sdk/
 
 environment:
-  sdk: ^3.5.4
+  sdk: ^3.9.0
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  get_it: ^9.0.5
+  get_it: ^9.2.0
 
 dev_dependencies:
   flutter_test:

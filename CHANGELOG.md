@@ -1,7 +1,7 @@
 ## 0.0.1
 
 ### Added
-- Initial release of `common_sdk`.
+- Initial release of `virnavi_common_sdk`.
 - **Logger** utility with correlation ID support for tracking related log messages across the application.
 - **Either** monad implementation for functional error handling with `Left` and `Right` types.
 - **Optional** type for safer null handling with methods like `ifPresent()`, `orElse()`, and `orElseThrow()`.
