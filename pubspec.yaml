@@ -2,6 +2,7 @@ name: virnavi_common_sdk
 description: "Common Project Startup classes"
 version: 0.0.1
 homepage:
+repository: https://github.com/virnavi/virnavi_common_sdk/
 
 environment:
   sdk: ^3.5.4
