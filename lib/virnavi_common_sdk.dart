@@ -1,4 +1,4 @@
-library virnavi_common_sdk;
+library;
 
 import 'src/logger/logger.dart';
 
