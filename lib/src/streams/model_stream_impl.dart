@@ -3,17 +3,38 @@ import 'dart:async';
 import '../models/models.dart';
 import 'model_stream.dart';
 
+/// A [ModelStream] that converts a single-entity stream into a model stream.
+///
+/// Each entity emitted by [stream] is converted by [convertToModel] and
+/// re-emitted as an [Optional]-wrapped model.
+///
+/// ```dart
+/// final stream = ModelStreamImpl<UserModel, UserEntity>(
+///   stream: userEntityStream,
+///   convertToModel: (entity) => entity == null
+///       ? Optional.empty()
+///       : Optional.of(UserModel.fromEntity(entity)),
+/// );
+/// stream.listen((optional) => optional.ifPresent(updateUi));
+/// ```
 class ModelStreamImpl<Model, Entity> extends ModelStream<Model> {
   late final Stream<Entity?> _stream;
+
+  /// The active subscription to the source stream.
   StreamSubscription? subscription;
+
+  /// The controller that broadcasts converted model values.
   final controller = StreamController<Optional<Model>>();
+
   bool _dataSent = false;
 
   @override
   bool get initialDataSent => _dataSent;
 
+  /// Converts a raw [Entity] (or `null`) to an [Optional]-wrapped [Model].
   Optional<Model> Function(Entity? entity) convertToModel;
 
+  /// Creates a [ModelStreamImpl] that listens to [stream] immediately.
   ModelStreamImpl({
     required Stream<Entity?> stream,
     required this.convertToModel,
@@ -22,6 +43,7 @@ class ModelStreamImpl<Model, Entity> extends ModelStream<Model> {
     init();
   }
 
+  /// Starts listening to the source stream.
   void init() {
     subscription = _stream.listen(
       (data) {
