@@ -1,5 +1,5 @@
 name: virnavi_common_sdk
-description: "Common Project Startup classes"
+description: "Flutter utilities including Either, Optional, ModelStream, Logger, ContextHolder, SnackBarHelper, InternetUtils, RegexHelper, and BaseGetIt."
 version: 0.0.2
 homepage:
 repository: https://github.com/virnavi/virnavi_common_sdk/
